@@ -1,0 +1,277 @@
+.footer {
+    align-items: center;
+    background-color: var(--black);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 86px;
+    /* height: 323px;  // Giữ nếu bạn muốn footer cố định chiều cao, hoặc bỏ nếu không cần */
+    padding: 43px 20px;
+    width: 100%;
+  }
+  .footer .frame-4 {
+    max-width: 1120px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 120.79px;
+    position: relative;
+  }
+  .footer .frame-4 .t-m-ki-m-m-t-c-n-tr {
+    color: var(--white);
+    font-family: var(--heading-2-font-family);
+    font-size: var(--heading-2-font-size);
+    font-style: var(--heading-2-font-style);
+    font-weight: var(--heading-2-font-weight);
+    height: 123px;
+    letter-spacing: var(--heading-2-letter-spacing);
+    line-height: var(--heading-2-line-height);
+    margin-bottom: -0.1px;
+    margin-top: -2.1px;
+    position: relative;
+    width: 304px;
+  }
+  .footer .frame-4 .t-m-ki-m-m-t-c-n-tr .span {
+    color: #ffffff;
+    font-family: var(--heading-2-font-family);
+    font-size: var(--heading-2-font-size);
+    font-style: var(--heading-2-font-style);
+    font-weight: var(--heading-2-font-weight);
+    letter-spacing: var(--heading-2-letter-spacing);
+    line-height: var(--heading-2-line-height);
+  }
+  .footer .frame-4 .t-m-ki-m-m-t-c-n-tr .text-wrapper-9 {
+    color: #0061df;
+    font-family: var(--heading-2-font-family);
+    font-size: var(--heading-2-font-size);
+    font-style: var(--heading-2-font-style);
+    font-weight: var(--heading-2-font-weight);
+    letter-spacing: var(--heading-2-letter-spacing);
+    line-height: var(--heading-2-line-height);
+  }
+  .footer .frame-4 .frame-5 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    position: relative;
+    width: 66px;
+  }
+  .footer .frame-4 .frame-5 .div-wrapper {
+    height: 30px;
+    margin-right: -1.67px;
+    position: relative;
+    width: 67.67px;
+  }
+  .footer .frame-4 .frame-5 .div-wrapper .text-wrapper-10 {
+    color: var(--white);
+    font-family: "Inter", Helvetica;
+    font-size: 15px;
+    font-weight: 700;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 30px;
+    position: absolute;
+    top: 0;
+    width: 66px;
+  }
+  .footer .frame-4 .group-6 {
+    align-self: stretch;
+    height: 30px;
+    margin-right: -2px;
+    position: relative;
+    width: 100%;
+  }
+  .footer .frame-4 .frame-6 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    height: 120px;
+    justify-content: center;
+    position: relative;
+    width: 103px;
+  }
+  .footer .frame-4 .frame-6 .text-wrapper-11 {
+    color: var(--white);
+    font-family: "Inter", Helvetica;
+    font-size: 15px;
+    font-weight: 700;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 30px;
+    position: absolute;
+    top: 0;
+    width: 103px;
+  }
+  .footer .frame-4 .group-7 {
+    height: 30px;
+    position: relative;
+    width: 67.67px;
+  }
+  .footer .frame-4 .frame-7 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    position: relative;
+    width: 240px;
+  }
+  .footer .frame-4 .frame-7 .group-8 {
+    height: 30px;
+    position: relative;
+    width: 200px;
+  }
+  .footer .frame-4 .frame-7 .group-8 .frame-8 {
+    height: 24px;
+    left: 0;
+    position: absolute;
+    top: 3px;
+    width: 28px;
+  }
+  .footer .frame-4 .frame-7 .group-8 .info-gmail-com {
+    color: var(--white);
+    font-family: "Inter", Helvetica;
+    font-size: 15px;
+    font-weight: 700;
+    left: 36px;
+    letter-spacing: 0;
+    line-height: 30px;
+    position: absolute;
+    top: 0;
+    width: 162px;
+  }
+  .footer .frame-4 .frame-7 .group-9 {
+    height: 30px;
+    position: relative;
+    width: 192px;
+  }
+  .footer .frame-4 .frame-7 .group-9 .vector {
+    height: 24px;
+    left: 0;
+    position: absolute;
+    top: 3px;
+    width: 24px;
+  }
+  .footer .frame-4 .frame-7 .group-9 .text-wrapper-12 {
+    color: var(--white);
+    font-family: "Inter", Helvetica;
+    font-size: 15px;
+    font-weight: 700;
+    left: 39px;
+    letter-spacing: 0;
+    line-height: 30px;
+    position: absolute;
+    top: 0;
+    width: 151px;
+  }
+  .footer .frame-4 .frame-7 .group-9 .th-c-tp-h-ch-minh {
+    color: var(--white);
+    font-family: "Inter", Helvetica;
+    font-size: 15px;
+    font-weight: 700;
+    left: 41px;
+    letter-spacing: 0;
+    line-height: 30px;
+    position: absolute;
+    top: 0;
+    width: 199px;
+  }
+  .footer .frame-4 .frame-9 {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 10px;
+    position: relative;
+  }
+  .footer .frame-4 .frame-9 .icon-linkedin {
+    height: 29px;
+    position: relative;
+    width: 28px;
+  }
+  .footer .frame-4 .frame-9 .icon-facebook {
+    background-image: url("https://c.animaapp.com/m8twrcooYWMm14/img/group.png");
+    background-size: 100% 100%;
+    height: 28.82px;
+    position: relative;
+    width: 29px;
+  }
+  .footer .frame-4 .frame-9 .icon-instagram {
+    background-image: url("https://c.animaapp.com/m8twrcooYWMm14/img/group-1.png");
+    background-size: 100% 100%;
+    height: 29px;
+    position: relative;
+    width: 29px;
+  }
+  .footer .frame-10 {
+    max-width: 1120px;
+    width: 100%;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 29.46px;
+    position: relative;
+  }
+  .footer .frame-10 .frame-11 {
+    align-items: flex-start;
+    display: inline-flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    height: 38px;
+    justify-content: center;
+    margin-bottom: -4.27px;
+    margin-top: -4.27px;
+    position: relative;
+  }
+  .footer .frame-10 .frame-12 {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    margin-top: -11px;
+    position: relative;
+  }
+  .footer .frame-10 .frame-12 .text-wrapper-13 {
+    color: var(--white);
+    font-family: "Inter", Helvetica;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 30px;
+    margin-top: -1px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  .footer .frame-10 .frame-13 {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    margin-bottom: -11px;
+    position: relative;
+  }
+  .footer .frame-10 .frame-14 {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 32px;
+    margin-bottom: -0.27px;
+    margin-top: -0.27px;
+    position: relative;
+  }
+  .footer .frame-10 .frame-14 .text-wrapper-14 {
+    color: #ffffff;
+    font-family: "Inter", Helvetica;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 30px;
+    margin-top: -1px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  

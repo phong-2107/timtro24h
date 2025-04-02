@@ -1,0 +1,94 @@
+.find {
+    display: flex;
+    justify-content: center;
+    padding: 35px 20px;
+    position: absolute;
+    top: 500px;
+    width: 100%;
+  }
+  .find .form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px 30px;
+    gap: 12px;
+    width: auto;
+  }
+  .find .input {
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+  }
+  .find .input .group-2, .find .input .group-3, .find .input .group-4, .find .input .group-5 {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .find .input .group-2 .label, .find .input .group-3 .label, .find .input .group-4 .label, .find .input .group-5 .label {
+    font-size: 14px;
+    font-weight: 700;
+    font-family: "Inter", sans-serif;
+    color: #000000;
+    margin-left: 4px;
+  }
+  .find .input .group-2 .content-2, .find .input .group-3 .content-2, .find .input .group-4 .content-2, .find .input .group-5 .content-2, .find .input .group-2 .content-3, .find .input .group-3 .content-3, .find .input .group-4 .content-3, .find .input .group-5 .content-3 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 9px 16px;
+    height: 50px;
+  }
+  .find .input .group-2 .content-2 input, .find .input .group-3 .content-2 input, .find .input .group-4 .content-2 input, .find .input .group-5 .content-2 input, .find .input .group-2 .content-3 input, .find .input .group-3 .content-3 input, .find .input .group-4 .content-3 input, .find .input .group-5 .content-3 input, .find .input .group-2 .content-2 select, .find .input .group-3 .content-2 select, .find .input .group-4 .content-2 select, .find .input .group-5 .content-2 select, .find .input .group-2 .content-3 select, .find .input .group-3 .content-3 select, .find .input .group-4 .content-3 select, .find .input .group-5 .content-3 select {
+    background: none;
+    border: none;
+    outline: none;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    color: #000;
+  }
+  .find .input .group-2 .content-2 .selectarrow, .find .input .group-3 .content-2 .selectarrow, .find .input .group-4 .content-2 .selectarrow, .find .input .group-5 .content-2 .selectarrow, .find .input .group-2 .content-3 .selectarrow, .find .input .group-3 .content-3 .selectarrow, .find .input .group-4 .content-3 .selectarrow, .find .input .group-5 .content-3 .selectarrow, .find .input .group-2 .content-2 .img-2, .find .input .group-3 .content-2 .img-2, .find .input .group-4 .content-2 .img-2, .find .input .group-5 .content-2 .img-2, .find .input .group-2 .content-3 .img-2, .find .input .group-3 .content-3 .img-2, .find .input .group-4 .content-3 .img-2, .find .input .group-5 .content-3 .img-2 {
+    width: 24px;
+    height: 24px;
+  }
+  .find .input .group-2 .content-2 .selectarrow, .find .input .group-3 .content-2 .selectarrow, .find .input .group-4 .content-2 .selectarrow, .find .input .group-5 .content-2 .selectarrow, .find .input .group-2 .content-3 .selectarrow, .find .input .group-3 .content-3 .selectarrow, .find .input .group-4 .content-3 .selectarrow, .find .input .group-5 .content-3 .selectarrow {
+    width: 16px !important;
+    height: 16px !important;
+  }
+  .find .input .group-2 {
+    width: 280px;
+  }
+  .find .input .group-2 .content-2 input::placeholder {
+    color: #7a7a7a;
+  }
+  .find .input .group-3, .find .input .group-4, .find .input .group-5 {
+    width: 180px;
+  }
+  .find .button-2 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #0061df;
+    border: none;
+    border-radius: 6px;
+    padding: 0 20px;
+    height: 50px;
+    cursor: pointer;
+  }
+  .find .button-2 .img {
+    width: 24px;
+    height: 24px;
+  }
+  .find .button-2 .text-wrapper-2 {
+    color: #ffffff;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  

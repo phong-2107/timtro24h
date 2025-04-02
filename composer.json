@@ -1,0 +1,18 @@
+{
+    "name": "nguyen-phong/ql_phong_tro",
+    "autoload": {
+        "psr-4": {
+            "QLPhongTro\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "NguyenThanhPhong",
+            "email": "nguyenphong.210703@gmai.com"
+        }
+    ],
+    "require": {
+        "phpoffice/phpspreadsheet": "^1.18",
+        "phpmailer/phpmailer": "^6.5"
+    }
+}
