@@ -19,6 +19,8 @@ $locations = $diaDiemModel->all();
         <?php include __DIR__ . '/components/Home/slider.php'; ?>
         <?php include __DIR__ . '/components/Home/categories.php'; ?>
         <?php include __DIR__ . '/components/Home/location.php'; ?>
+        <?php include __DIR__ . '/components/Home/map.php'; ?>
+
     </div>
 </div>
 

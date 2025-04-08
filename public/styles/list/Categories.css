@@ -1,0 +1,114 @@
+.categories {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    left: 0;
+    padding: 50px 30px;
+    position: relative;
+    width: 100%;
+  }
+  .categories .menu-categories {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: -50px;
+    position: relative;
+    width: 1120px;
+  }
+  .categories .menu-categories .breadcrumbs {
+    align-items: center;
+    align-self: stretch;
+    display: flex;
+    gap: 9px;
+    position: relative;
+    width: 100%;
+  }
+  .categories .menu-categories .breadcrumbs .text-wrapper {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 20px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  .categories .menu-categories .breadcrumbs .div {
+    color: var(--x-006-1df);
+    font-family: "Inter", Helvetica;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 20px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  .categories .menu-categories .breadcrumbs .group {
+    height: 31px;
+    position: relative;
+    width: 127.28px;
+  }
+  .categories .menu-categories .breadcrumbs .button-instance {
+    display: flex !important;
+  }
+  .categories .menu-categories .breadcrumbs .design-component-instance-node {
+    margin-left: -1.86px !important;
+    margin-right: -1.86px !important;
+  }
+  .categories .menu-categories .infor {
+    left: 0;
+    position: relative;
+    width: 1120px;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+  .categories .menu-categories .infor .cards {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+  .categories .menu-categories .infor .categories-title {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 1003px;
+    justify-content: space-around;
+    left: 629px;
+    top: 0;
+    width: 100%;
+  }
+  .categories .menu-categories .infor .total-area {
+    height: 38px;
+    left: 15px;
+    position: absolute;
+    top: 678px;
+    width: 440px;
+  }
+  .categories .menu-categories .infor .type-house-instance {
+    height: 238px !important;
+  }
+  .categories .menu-categories .infor .type-house-2 {
+    top: 66px !important;
+  }
+  .categories .menu-categories .infor .type-house-3 {
+    margin-right: -42px !important;
+  }
+  .categories .menu-categories .infor .type-house-4 {
+    margin-right: -41px !important;
+  }
+  .categories .menu-categories .infor .type-house-5 {
+    margin-right: -49px !important;
+  }
+  

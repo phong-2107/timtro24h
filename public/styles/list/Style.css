@@ -1,0 +1,18 @@
+.list {
+    width: 100%;
+    background-color: #ffffff;
+    max-width: 1440px;
+    margin: 0 auto;
+    
+  
+}
+
+.list .div-2 {
+    width: 100%;
+    background-color: hsl(0, 0%, 100%);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+   

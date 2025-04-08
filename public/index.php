@@ -31,12 +31,17 @@ $nhanVienController     = new NhanVienController($conn);
 // Xác định hành động
 $action = $_GET['action'] ?? 'home';
 
-// Định tuyến
+// Định tuyến 
 switch ($action) {
     // ---------- USER ----------
-    case 'login':         $userController->login(); break;
-    case 'register':      $userController->register(); break;
-    case 'logout':        $userController->logout(); break;
+    case 'login':        $userController->showLogin(); break;
+    case 'do_login':     $userController->login(); break;
+
+    case 'register':     $userController->showRegister(); break;
+    case 'do_register':  $userController->register(); break;
+
+    case 'logout': $userController->logout(); break;
+
 
     // ---------- ROLE ----------
     case 'role_index':    $roleController->index(); break;
@@ -52,6 +57,8 @@ switch ($action) {
     case 'diadiem_show':      $diaDiemController->show($_GET['id'] ?? 0); break;
     case 'diadiem_create':    $diaDiemController->createForm(); break;
     case 'diadiem_store':     $diaDiemController->store(); break;
+    case 'phongtro_by_location': $diaDiemController->phongTroTheoDiaDiem($_GET['id'] ?? 0); break;
+    
 
     // ---------- PHONG TRO ----------
     case 'phongtro_index':     $phongTroController->index(); break;
@@ -62,6 +69,14 @@ switch ($action) {
     case 'phongtro_update':    $phongTroController->update($_GET['id'] ?? 0); break;
     case 'phongtro_delete':    $phongTroController->delete($_GET['id'] ?? 0); break;
     case 'phongtro_search':    $phongTroController->search(); break;
+    case 'phongtro_detail': $phongTroController->detailPage($_GET['id'] ?? 0); break;
+    case 'phongtro_list_by_diadien':
+        $diaDiemId = $_GET['diaDiem_id'] ?? 0;
+        $phongTroController->listByDiaDiem($diaDiemId);
+        break;
+    case 'phongtro_roompage':
+        $phongTroController->roomPage();
+        break;
 
     // ---------- PHONGTRO HINHANH ----------
     case 'phongtrohinhanh_index':
@@ -94,16 +109,5 @@ switch ($action) {
     case 'home':
     default:
         include __DIR__ . '/../src/views/homepage.php';
-        // $title = "Trang Chủ";
-        // $content = '
-        //     <div class="jumbotron">
-        //         <h1 class="display-4">Chào mừng đến với Hệ thống Quản lý Phòng Trọ</h1>
-        //         <p class="lead">Đăng nhập hoặc đăng ký để bắt đầu sử dụng hệ thống.</p>
-        //         <hr class="my-4">
-        //         <a class="btn btn-primary btn-lg" href="?action=register">Đăng ký</a>
-        //         <a class="btn btn-success btn-lg" href="?action=login">Đăng nhập</a>
-        //     </div>
-        // ';
-        // include __DIR__ . '/../src/views/layouts/main.php';
         break;
 }    

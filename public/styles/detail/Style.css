@@ -1,0 +1,16 @@
+.detail-property {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .detail-property .div-3 {
+    background-color: #ffffff;
+    height: 2258px;
+    overflow: hidden;
+    position: relative;
+    width: 1440px;
+  }
+  

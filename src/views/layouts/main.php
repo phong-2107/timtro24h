@@ -18,10 +18,12 @@
     * {
         -webkit-font-smoothing: antialiased;
         box-sizing: border-box;
+        text-decoration: none !important;
     }
 
     html,
     body {
+        text-decoration: none;
         margin: 0px;
         height: 100%;
     }

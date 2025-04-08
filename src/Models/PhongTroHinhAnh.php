@@ -14,6 +14,13 @@ class PhongTroHinhAnh {
         $stmt->execute([':id' => $phongTroId]);
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
+    public function getHinhAnhByPhongTroId($id) {
+        $stmt = $this->conn->prepare("SELECT hinhAnh FROM phongtro_hinhanh WHERE phongTro_id = :id");
+        $stmt->execute([':id' => $id]);
+        return array_map(fn($row) => '/public/images/' . $row['hinhAnh'], $stmt->fetchAll(\PDO::FETCH_ASSOC));
+    }
+    
+
 
     // Thêm ảnh cho phòng trọ
     public function addImage($phongTroId, $imageUrl) {

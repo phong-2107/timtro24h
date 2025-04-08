@@ -1,0 +1,310 @@
+.type-house-wrapper {
+    align-items: flex-start;
+    background-color: #ffffff;
+    border: 1px solid;
+    border-color: #00000080;
+    border-radius: 12px;
+    box-shadow: 5px 5px 10px #00000066;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    height: 423px;
+    padding: 20px;
+    position: relative;
+    width: 470px;
+  }
+  
+  .type-house-wrapper .frame-wrapper {
+    align-items: flex-start;
+    align-self: stretch;
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: flex-end;
+    position: relative;
+    width: 100%;
+  }
+  
+  .type-house-wrapper .frame-18 {
+    align-items: flex-start;
+    display: inline-flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+  }
+  
+  .type-house-wrapper .lo-i-ph-ng-c-n-thu-2 {
+    color: #000000;
+    font-family: "Gantari", Helvetica;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 20px;
+    margin-top: -1.00px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .type-house-wrapper .text-icons-2 {
+    border-color: #7a73731a;
+    border-top-style: solid;
+    border-top-width: 1px;
+    height: 345px;
+    left: 15px;
+    position: absolute;
+    top: 58px;
+    width: 440px;
+  }
+  
+  .type-house-wrapper .total-area-5 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 38px;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 440px;
+  }
+  
+  .type-house-wrapper .total-area-6 {
+    align-items: center;
+    align-self: stretch;
+    display: flex;
+    flex: 0 0 auto;
+    gap: 8px;
+    position: relative;
+    width: 100%;
+  }
+  
+  .type-house-wrapper .svg {
+    height: 24px;
+    position: relative;
+    width: 24px;
+  }
+  
+  .type-house-wrapper .layer {
+    height: 22px;
+    left: 4px;
+    position: absolute;
+    top: 1px;
+    width: 17px;
+  }
+  
+  .type-house-wrapper .text-3 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 12px;
+    justify-content: center;
+    position: relative;
+    width: 12px;
+  }
+  
+  .type-house-wrapper .text-wrapper-24 {
+    color: #100e2c;
+    font-family: "Inter", Helvetica;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 20px;
+    margin-right: -109.00px;
+    margin-top: -1.00px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .type-house-wrapper .total-area-7 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 38px;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: 38px;
+    width: 440px;
+  }
+  
+  .type-house-wrapper .text-wrapper-25 {
+    color: #100e2c;
+    font-family: "Inter", Helvetica;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 20px;
+    margin-right: -39.00px;
+    margin-top: -1.00px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .type-house-wrapper .total-area-8 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 38px;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: 76px;
+    width: 440px;
+  }
+  
+  .type-house-wrapper .text-wrapper-26 {
+    color: #100e2c;
+    font-family: "Inter", Helvetica;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 20px;
+    margin-right: -78.00px;
+    margin-top: -1.00px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .type-house-wrapper .total-area-9 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 38px;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: 114px;
+    width: 440px;
+  }
+  
+  .type-house-wrapper .text-wrapper-27 {
+    color: #100e2c;
+    font-family: "Inter", Helvetica;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 20px;
+    margin-right: -124.00px;
+    margin-top: -1.00px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .type-house-wrapper .total-area-10 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 38px;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: 152px;
+    width: 440px;
+  }
+  
+  .type-house-wrapper .text-wrapper-28 {
+    color: #100e2c;
+    font-family: "Inter", Helvetica;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 20px;
+    margin-right: -54.00px;
+    margin-top: -1.00px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .type-house-wrapper .total-area-11 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 38px;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: 190px;
+    width: 440px;
+  }
+  
+  .type-house-wrapper .text-wrapper-29 {
+    color: #100e2c;
+    font-family: "Inter", Helvetica;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 20px;
+    margin-right: -58.00px;
+    margin-top: -1.00px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .type-house-wrapper .total-area-12 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 38px;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: 228px;
+    width: 440px;
+  }
+  
+  .type-house-wrapper .text-wrapper-30 {
+    color: #100e2c;
+    font-family: "Inter", Helvetica;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 20px;
+    margin-right: -80.00px;
+    margin-top: -1.00px;
+    position: relative;
+    width: 92px;
+  }
+  
+  .type-house-wrapper .total-area-13 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 38px;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: 266px;
+    width: 440px;
+  }
+  
+  .type-house-wrapper .total-area-14 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 38px;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: 304px;
+    width: 440px;
+  }
+  
