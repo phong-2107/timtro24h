@@ -1,7 +1,10 @@
 <?php
 namespace QLPhongTro\Models;
-
+use PDO;
 class User {
+
+    
+
     private $conn;
 
     public function __construct($dbConn) {
@@ -43,4 +46,97 @@ class User {
         $stmt = $this->conn->prepare("DELETE FROM User WHERE id = :id");
         return $stmt->execute([':id' => $id]);
     }
+    public function paginate($limit, $offset) {
+        $stmt = $this->conn->prepare("SELECT * FROM User LIMIT :limit OFFSET :offset");
+        $stmt->bindValue(':limit', $limit, \PDO::PARAM_INT);
+        $stmt->bindValue(':offset', $offset, \PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+    public function search($keyword, $limit, $offset) {
+        $sql = "
+            SELECT * FROM User 
+            WHERE hoTen LIKE :kw OR email LIKE :kw OR taiKhoan LIKE :kw OR soDienThoai LIKE :kw 
+            LIMIT :limit OFFSET :offset
+        ";
+        $stmt = $this->conn->prepare($sql);
+        $search = "%$keyword%";
+        $stmt->bindValue(':kw', $search);
+        $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
+    public function countSearchResults($keyword) {
+        $sql = "
+            SELECT COUNT(*) as total FROM User 
+            WHERE hoTen LIKE :kw OR email LIKE :kw OR taiKhoan LIKE :kw OR soDienThoai LIKE :kw
+        ";
+        $stmt = $this->conn->prepare($sql);
+        $search = "%$keyword%";
+        $stmt->bindValue(':kw', $search);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC)['total'];
+    }
+    public function searchWithFilters($keyword, $gender, $status, $limit, $offset) {
+        $sql = "SELECT * FROM User WHERE 1=1";
+        $params = [];
+    
+        if (!empty($keyword)) {
+            $sql .= " AND (hoTen LIKE :kw OR email LIKE :kw OR taiKhoan LIKE :kw OR soDienThoai LIKE :kw)";
+            $params[':kw'] = '%' . $keyword . '%';
+        }
+        if (!empty($gender)) {
+            $sql .= " AND gioiTinh = :gender";
+            $params[':gender'] = $gender;
+        }
+        if ($status !== null && $status !== '') {
+            $sql .= " AND trangThai = :status";
+            $params[':status'] = $status;
+        }
+    
+        $sql .= " LIMIT :limit OFFSET :offset";
+        $stmt = $this->conn->prepare($sql);
+    
+        foreach ($params as $key => $val) {
+            $stmt->bindValue($key, $val);
+        }
+        $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
+    
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
+    public function countWithFilters($keyword, $gender, $status) {
+        $sql = "SELECT COUNT(*) as total FROM User WHERE 1=1";
+        $params = [];
+    
+        if (!empty($keyword)) {
+            $sql .= " AND (hoTen LIKE :kw OR email LIKE :kw OR taiKhoan LIKE :kw OR soDienThoai LIKE :kw)";
+            $params[':kw'] = '%' . $keyword . '%';
+        }
+        if (!empty($gender)) {
+            $sql .= " AND gioiTinh = :gender";
+            $params[':gender'] = $gender;
+        }
+        if ($status !== null && $status !== '') {
+            $sql .= " AND trangThai = :status";
+            $params[':status'] = $status;
+        }
+    
+        $stmt = $this->conn->prepare($sql);
+        foreach ($params as $key => $val) {
+            $stmt->bindValue($key, $val);
+        }
+    
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC)['total'];
+    }
+    public function countAll() {
+        $stmt = $this->conn->query("SELECT COUNT(*) as total FROM User");
+        return $stmt->fetch(PDO::FETCH_ASSOC)['total'];
+    }
+    
 }

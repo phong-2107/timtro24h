@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
-        'name' => 'nguyen-phong/bt_composer_qlsv',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => null,
+        'name' => 'nguyen-phong/ql_phong_tro',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => 'cadd01340e5aca2b67f5a9274fa6d676ca028736',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -29,9 +29,9 @@
             'dev_requirement' => false,
         ),
         'maennchen/zipstream-php' => array(
-            'pretty_version' => '3.1.2',
-            'version' => '3.1.2.0',
-            'reference' => 'aeadcf5c412332eb426c0f9b4485f6accba2a99f',
+            'pretty_version' => '3.1.1',
+            'version' => '3.1.1.0',
+            'reference' => '6187e9cc4493da94b9b63eb2315821552015fca9',
             'type' => 'library',
             'install_path' => __DIR__ . '/../maennchen/zipstream-php',
             'aliases' => array(),
@@ -55,10 +55,10 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
-        'nguyen-phong/bt_composer_qlsv' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => null,
+        'nguyen-phong/ql_phong_tro' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => 'cadd01340e5aca2b67f5a9274fa6d676ca028736',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

@@ -91,6 +91,26 @@ class UserController {
         include_once __DIR__ . '/../views/user/register.php';
     }
 
+    public function index() {
+        $search = $_GET['search'] ?? null;
+        $currentPage = $_GET['page'] ?? 1;
+        $perPage = 10;
+        $offset = ($currentPage - 1) * $perPage;
+    
+        if ($search) {
+            $users = $this->userModel->search($search, $perPage, $offset);
+            $totalUsers = $this->userModel->countSearchResults($search);
+        } else {
+            $users = $this->userModel->paginate($perPage, $offset);
+            $totalUsers = $this->userModel->countAll();
+        }
+    
+        $totalPages = ceil($totalUsers / $perPage);
+    
+        include __DIR__ . '/../views/admin_UI/user/admin_user.php';
+    }
+    
+    
     // Logout
     public function logout() {
         session_start();

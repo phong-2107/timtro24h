@@ -8,9 +8,48 @@ class PhongTro {
         $this->conn = $dbConn;
     }
 
-    // Lấy tất cả phòng trọ
+    // Lấy tất cả phòng trọ (kèm tìm kiếm + phân trang)
+    public function getAll($search = '', $limit = 10, $offset = 0) {
+        $sql = "SELECT * FROM PhongTro WHERE 1";
+        $params = [];
+
+        if (!empty($search)) {
+            $sql .= " AND (tieuDe LIKE :kw OR moTa LIKE :kw OR diaChiCuThe LIKE :kw)";
+            $params[':kw'] = '%' . $search . '%';
+        }
+
+        $sql .= " ORDER BY id DESC LIMIT :limit OFFSET :offset";
+
+        $stmt = $this->conn->prepare($sql);
+        foreach ($params as $key => $val) {
+            $stmt->bindValue($key, $val);
+        }
+        $stmt->bindValue(':limit', (int)$limit, \PDO::PARAM_INT);
+        $stmt->bindValue(':offset', (int)$offset, \PDO::PARAM_INT);
+
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    // Đếm tổng phòng trọ cho phân trang
+    public function count($search = '') {
+        $sql = "SELECT COUNT(*) as total FROM PhongTro WHERE 1";
+        $params = [];
+
+        if (!empty($search)) {
+            $sql .= " AND (tieuDe LIKE :kw OR moTa LIKE :kw OR diaChiCuThe LIKE :kw)";
+            $params[':kw'] = '%' . $search . '%';
+        }
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute($params);
+        $row = $stmt->fetch(\PDO::FETCH_ASSOC);
+        return $row['total'] ?? 0;
+    }
+
+    // Lấy tất cả phòng trọ (không phân trang)
     public function all() {
-        $stmt = $this->conn->query("SELECT * FROM PhongTro");
+        $stmt = $this->conn->query("SELECT * FROM PhongTro ORDER BY id DESC");
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
@@ -56,7 +95,7 @@ class PhongTro {
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-    // Tìm kiếm phòng trọ theo từ khóa (tựa đề, mô tả, địa chỉ)
+    // Tìm kiếm phòng trọ (full)
     public function search($keyword) {
         $like = '%' . $keyword . '%';
         $stmt = $this->conn->prepare("

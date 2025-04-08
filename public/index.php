@@ -14,6 +14,7 @@ use QLPhongTro\Controllers\PhongTroController;
 use QLPhongTro\Controllers\PhongTroHinhAnhController;
 use QLPhongTro\Controllers\KhachHangController;
 use QLPhongTro\Controllers\NhanVienController;
+use QLPhongTro\Controllers\AD_RC;
 
 // Kết nối CSDL
 $db = Database::getInstance();
@@ -27,6 +28,7 @@ $phongTroController     = new PhongTroController($conn);
 $phongTroHAController   = new PhongTroHinhAnhController($conn);
 $khachHangController    = new KhachHangController($conn);
 $nhanVienController     = new NhanVienController($conn);
+$ARController     = new AD_RC($conn);
 
 // Xác định hành động
 $action = $_GET['action'] ?? 'home';
@@ -106,4 +108,32 @@ switch ($action) {
         // ';
         // include __DIR__ . '/../src/views/layouts/main.php';
         break;
+
+    // ---------- ADMIN UI ----------
+    case 'manager':
+        include __DIR__ . '/../src/views/admin_UI/admin_home.php';
+        break;
+    case 'user_index': $userController->index(); break;
+    case 'room_index':
+        $ARController->index(); // ✅ Dùng lại biến đã khởi tạo bên trên
+        break;
+    
+    case 'room_get':
+        $ARController->get();
+        break;
+    
+    case 'room_create':
+        $ARController->create();
+        break;
+    
+    case 'room_update':
+        $ARController->update();
+        break;
+    
+    case 'room_delete':
+        $ARController->delete();
+        break;
+    
+
+
 }    
