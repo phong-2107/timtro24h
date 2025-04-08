@@ -16,6 +16,7 @@ use QLPhongTro\Controllers\KhachHangController;
 use QLPhongTro\Controllers\NhanVienController;
 use QLPhongTro\Controllers\KhachHangYeuThichController;
 use QLPhongTro\Controllers\AD_RC;
+use QLPhongTro\Controllers\ContactController;
 
 // Kết nối CSDL
 $db = Database::getInstance();
@@ -31,7 +32,7 @@ $khachHangController    = new KhachHangController($conn);
 $nhanVienController     = new NhanVienController($conn);
 $yeuThichController = new KhachHangYeuThichController($conn);
 $ARController     = new AD_RC($conn);
-
+$contactController = new ContactController();
 // Xác định hành động
 $action = $_GET['action'] ?? 'home';
 
@@ -63,6 +64,7 @@ switch ($action) {
     case 'diadiem_store':     $diaDiemController->store(); break;
     case 'phongtro_by_location': $diaDiemController->phongTroTheoDiaDiem($_GET['id'] ?? 0); break;
     
+    
 
     // ---------- PHONG TRO ----------
     case 'phongtro_index':     $phongTroController->index(); break;
@@ -90,6 +92,18 @@ switch ($action) {
         break;
     case 'phongtrohinhanh_delete':
         $phongTroHAController->delete($_GET['image_id'] ?? 0, $_GET['phongtro_id'] ?? 0);
+        break;
+
+    // ---------- CONTACT ----------
+    case 'contact':
+        $contactController->show();
+        break;
+    
+
+    // ---------- TIN TỨC ----------
+    case 'news': 
+        $newsController = new \QLPhongTro\Controllers\NewsController();
+        $newsController->index(); 
         break;
 
     // ---------- KHACH HANG ----------

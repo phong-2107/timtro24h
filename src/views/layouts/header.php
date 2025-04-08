@@ -19,9 +19,9 @@ $user = $_SESSION['user'] ?? null;
             <div class="frame-2">
                 <div class="frame-3">
                     <a href="/public/index.php/?action=phongtro_roompage" class="text-wrapper-8">Phòng trọ</a>
-                    <a href="/?action=role_index" class="text-wrapper-8">Danh Mục</a>
-                    <a href="/?action=news" class="text-wrapper-8">Tin Tức</a>
-                    <a href="/?action=diadiem_index" class="text-wrapper-8">Địa Điểm</a>
+                    <a href="/?action=role_index" class="text-wrapper-8">Yêu Thích</a>
+                    <a href="/public/index.php/?action=news" class="text-wrapper-8">Tin Tức</a>
+                    <a href="/public/index.php/?action=contact" class="text-wrapper-8">Liên Hệ</a>
                 </div>
             </div>
 

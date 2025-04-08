@@ -1,0 +1,113 @@
+.content {
+    left: 0;
+    position: relative;
+    width: 100%;
+  }
+  .content .list-news {
+    height: 450px;
+    left: 136px;
+    position: absolute;
+    top: 103px;
+    width: 1168px;
+  }
+  .content .news-instance {
+    left: 0 !important;
+    position: absolute !important;
+    top: 0 !important;
+  }
+  .content .design-component-instance-node {
+    left: 399px !important;
+    position: absolute !important;
+    top: 0 !important;
+  }
+  .content .title-3 {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    /* height: 20px; */
+    justify-content: center;
+    position: relative;
+    /* width: 373px; */
+    padding: 20px;
+    margin: 20px 0;
+  }
+  .content .title-3 .text-wrapper-11 {
+    color: #000;
+    font-family: "Inter", Helvetica;
+    font-size: 36px;
+    font-weight: 700;
+    height: 20px;
+    line-height: 20px;
+    margin-top: -1px;
+    position: relative;
+    white-space: nowrap;
+}
+
+  .content .news-2 {
+    left: 798px !important;
+    position: absolute !important;
+    top: 0 !important;
+  }
+  .content .list-news-2 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .content .list-news-3 {
+    height: 450px;
+    left: 136px;
+    position: absolute;
+    top: 1083px;
+    width: 1168px;
+  }
+  .content .list-news-4 {
+    height: 450px;
+    left: 136px;
+    position: absolute;
+    top: 1573px;
+    width: 1168px;
+  }
+  .content .controls {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    left: 588px;
+    position: absolute;
+    top: 2073px;
+    width: 263px;
+  }
+  .content .text-wrapper-10 {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0;
+    line-height: 30px;
+    margin-top: -1px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  .content .title {
+    align-items: center;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    left: 568px;
+    position: absolute;
+    top: 35px;
+  }
+  .content .text-wrapper-11 {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 30px;
+    margin-top: -1px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
