@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/public/styles/home/FindFilter.css" />
+<link rel="stylesheet" href="/public/styles/list/FindFilter.css" />
 
 <div class="find">
     <form class="form" method="GET" action="index.php">

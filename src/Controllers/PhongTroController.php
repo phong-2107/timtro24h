@@ -165,5 +165,47 @@ class PhongTroController {
     
         include_once __DIR__ . '/../views/roompage.php';
     }
+
+    public function find() {
+        // Lấy dữ liệu từ form
+        $locationId = $_GET['location_id'] ?? '';
+        $price = $_GET['price'] ?? '';
+        $area = $_GET['area'] ?? '';
+    
+        // Lấy danh sách địa điểm để hiển thị lại nếu cần
+        $diaDiems = $this->diaDiemModel->all();
+    
+        // Tạo điều kiện SQL mức giá
+        $priceCondition = '';
+        if ($price === 'duoi1tr') {
+            $priceCondition = 'gia < 1000000';
+        } elseif ($price === '1-3tr') {
+            $priceCondition = 'gia >= 1000000 AND gia <= 3000000';
+        } elseif ($price === '3-5tr') {
+            $priceCondition = 'gia > 3000000 AND gia <= 5000000';
+        } elseif ($price === 'tren5tr') {
+            $priceCondition = 'gia > 5000000';
+        }
+    
+        // Tạo điều kiện SQL diện tích
+        $areaCondition = '';
+        if ($area === 'duoi15') {
+            $areaCondition = 'dienTich < 15';
+        } elseif ($area === '15-25') {
+            $areaCondition = 'dienTich >= 15 AND dienTich <= 25';
+        } elseif ($area === '25-35') {
+            $areaCondition = 'dienTich > 25 AND dienTich <= 35';
+        } elseif ($area === 'tren35') {
+            $areaCondition = 'dienTich > 35';
+        }
+    
+        // Gọi model thực hiện truy vấn
+        $roomsData = $this->phongTroModel->advancedSearch($locationId, $priceCondition, $areaCondition);
+    
+        // Trả về view hiển thị kết quả
+        include_once __DIR__ . '/../views/find_result.php';
+    }
+    
+    
     
 }

@@ -152,5 +152,40 @@ class PhongTro {
         $result = $stmt->fetch(\PDO::FETCH_ASSOC);
         return $result['total'] ?? 0;
     }
+
+    public function advancedSearch($locationId = null, $priceSQL = '', $areaSQL = '') {
+        $sql = "
+            SELECT pt.*, dd.tinhThanh, dd.quanHuyen
+            FROM PhongTro pt
+            JOIN DiaDiem dd ON pt.diaDiem_id = dd.id
+            WHERE 1
+        ";
+        $params = [];
+    
+        if (!empty($locationId)) {
+            $sql .= " AND pt.diaDiem_id = :location_id";
+            $params[':location_id'] = $locationId;
+        }
+    
+        if (!empty($priceSQL)) {
+            $sql .= " AND ($priceSQL)";
+        }
+    
+        if (!empty($areaSQL)) {
+            $sql .= " AND ($areaSQL)";
+        }
+    
+        $sql .= " ORDER BY pt.id DESC";
+    
+        $stmt = $this->conn->prepare($sql);
+        foreach ($params as $key => $val) {
+            $stmt->bindValue($key, $val);
+        }
+    
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+    
+    
     
 }

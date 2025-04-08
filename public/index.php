@@ -14,6 +14,7 @@ use QLPhongTro\Controllers\PhongTroController;
 use QLPhongTro\Controllers\PhongTroHinhAnhController;
 use QLPhongTro\Controllers\KhachHangController;
 use QLPhongTro\Controllers\NhanVienController;
+use QLPhongTro\Controllers\KhachHangYeuThichController;
 use QLPhongTro\Controllers\AD_RC;
 
 // Kết nối CSDL
@@ -28,6 +29,7 @@ $phongTroController     = new PhongTroController($conn);
 $phongTroHAController   = new PhongTroHinhAnhController($conn);
 $khachHangController    = new KhachHangController($conn);
 $nhanVienController     = new NhanVienController($conn);
+$yeuThichController = new KhachHangYeuThichController($conn);
 $ARController     = new AD_RC($conn);
 
 // Xác định hành động
@@ -76,9 +78,8 @@ switch ($action) {
         $diaDiemId = $_GET['diaDiem_id'] ?? 0;
         $phongTroController->listByDiaDiem($diaDiemId);
         break;
-    case 'phongtro_roompage':
-        $phongTroController->roomPage();
-        break;
+    case 'phongtro_roompage': $phongTroController->roomPage(); break;
+    case 'phongtro_find': $phongTroController->find(); break;    
 
     // ---------- PHONGTRO HINHANH ----------
     case 'phongtrohinhanh_index':
@@ -98,6 +99,19 @@ switch ($action) {
     case 'khachhang_add_fav':         $khachHangController->themYeuThich($_GET['userId'] ?? 0, $_GET['phongTroId'] ?? 0); break;
     case 'khachhang_remove_fav':      $khachHangController->xoaYeuThich($_GET['userId'] ?? 0, $_GET['phongTroId'] ?? 0); break;
 
+    // ---------- YEU THICH ----------
+    case 'yeuthich_index': 
+        $yeuThichController->index($_GET['user'] ?? 0); 
+        break;
+
+    case 'yeuthich_add': 
+        $yeuThichController->add($_GET['user'] ?? 0, $_GET['phong'] ?? 0); 
+        break;
+
+    case 'yeuthich_remove': 
+        $yeuThichController->remove($_GET['user'] ?? 0, $_GET['phong'] ?? 0); 
+        break;
+    
     // ---------- NHAN VIEN ----------
     case 'nhanvien_index':        $nhanVienController->index(); break;
     case 'nhanvien_show':         $nhanVienController->show($_GET['id'] ?? 0); break;
@@ -137,7 +151,5 @@ switch ($action) {
     case 'room_delete':
         $ARController->delete();
         break;
-    
-
 
 }    
