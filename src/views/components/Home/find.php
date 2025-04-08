@@ -13,7 +13,7 @@
                         <option value="chungcu">Chung cư mini</option>
                         <option value="nguyencan">Nhà nguyên căn</option>
                     </select>
-                    <img src="/public/icons/arrow.svg" class="selectarrow" />
+                    <!-- <img src="/public/icons/arrow.svg" class="selectarrow" /> -->
                 </div>
             </div>
 
@@ -27,7 +27,7 @@
                         <option value="hn">Hà Nội</option>
                         <option value="dn">Đà Nẵng</option>
                     </select>
-                    <img src="/public/icons/arrow.svg" class="selectarrow" />
+                    <!-- <img src="/public/icons/arrow.svg" class="selectarrow" /> -->
                 </div>
             </div>
 
@@ -42,7 +42,7 @@
                         <option value="3-5tr">3 - 5 triệu</option>
                         <option value="tren5tr">Trên 5 triệu</option>
                     </select>
-                    <img src="/public/icons/arrow.svg" class="selectarrow" />
+                    <!-- <img src="/public/icons/arrow.svg" class="selectarrow" /> -->
                 </div>
             </div>
         </div>

@@ -1,0 +1,14 @@
+.home {
+    width: 100%;
+    background-color: #ffffff;
+    max-width: 1440px;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .home .div-2 {
+    width: 100%;
+    background-color: white;
+    position: relative;
+  }
+  

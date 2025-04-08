@@ -94,8 +94,22 @@ class PhongTro {
         $stmt->execute([':nguoiDang_id' => $nguoiDang_id]);
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
+    public function getHinhAnhByPhongTroId($id) {
+        $stmt = $this->conn->prepare("SELECT hinhAnh FROM phongtro_hinhanh WHERE phongTro_id = :id");
+        $stmt->execute([':id' => $id]);
+        return array_map(fn($row) => 'images/room/' . $row['hinhAnh'], $stmt->fetchAll(\PDO::FETCH_ASSOC));
+    }
 
-    // Tìm kiếm phòng trọ (full)
+    public function getFirstImage($phongTroId) {
+        $stmt = $this->conn->prepare("SELECT hinhAnh FROM phongtro_hinhanh WHERE phongTro_id = :id LIMIT 1");
+        $stmt->execute([':id' => $phongTroId]);
+        $row = $stmt->fetch(\PDO::FETCH_ASSOC);
+        return $row ? 'images/room/' . $row['hinhAnh'] : 'images/room/default.jpg';
+    }
+    
+
+    // Tìm kiếm phòng trọ theo từ khóa (tựa đề, mô tả, địa chỉ)
+
     public function search($keyword) {
         $like = '%' . $keyword . '%';
         $stmt = $this->conn->prepare("
@@ -105,4 +119,38 @@ class PhongTro {
         $stmt->execute([':kw' => $like]);
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    public function getByDiaDiem($diaDiem_id) {
+        $stmt = $this->conn->prepare("
+            SELECT * 
+            FROM PhongTro
+            WHERE diaDiem_id = :diaDiem_id
+        ");
+        $stmt->execute([':diaDiem_id' => $diaDiem_id]);
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+    
+    public function getByPage($page, $limit) {
+        $offset = ($page - 1) * $limit;
+        $stmt = $this->conn->prepare("SELECT * FROM PhongTro LIMIT :offset, :limit");
+        $stmt->bindParam(':offset', $offset, \PDO::PARAM_INT);
+        $stmt->bindParam(':limit', $limit, \PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function paginate($limit, $offset) {
+        $stmt = $this->conn->prepare("SELECT * FROM PhongTro LIMIT :limit OFFSET :offset");
+        $stmt->bindValue(':limit', (int)$limit, \PDO::PARAM_INT);
+        $stmt->bindValue(':offset', (int)$offset, \PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+    
+    public function countAll() {
+        $stmt = $this->conn->query("SELECT COUNT(*) as total FROM PhongTro");
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+        return $result['total'] ?? 0;
+    }
+    
 }

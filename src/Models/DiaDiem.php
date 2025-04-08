@@ -30,4 +30,15 @@ class DiaDiem {
         $stmt->execute($data);
         return $this->conn->lastInsertId();
     }
+
+        // Lấy danh sách phòng trọ theo id địa điểm
+    public function getPhongTroByDiaDiemId($diaDiemId) {
+        $stmt = $this->conn->prepare("
+            SELECT * FROM PhongTro
+            WHERE diaDiem_id = :id
+        ");
+        $stmt->execute([':id' => $diaDiemId]);
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
 }

@@ -10,10 +10,14 @@
             <div class="text-wrapper-12">Cho Thuê Phòng Trọ</div>
             <div class="places">
                 <?php foreach ($locations as $location): ?>
-                <?php $text = $location['tinhThanh']; $id = $location['id']; ?>
+                <?php 
+                        $text = $location['tinhThanh'];
+                        $id   = $location['id'];
+                    ?>
                 <?php include __DIR__ . '/place.php'; ?>
                 <?php endforeach; ?>
             </div>
+
         </div>
 
         <div class="frame-10">

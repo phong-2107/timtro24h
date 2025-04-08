@@ -30,6 +30,26 @@ class PhongTroController {
         include_once __DIR__ . '/../views/phongtro/show.php';
     }
 
+    public function detailPage($id) {
+        $phong = $this->phongTroModel->find($id);
+    
+        if (!$phong) {
+            echo "Phòng trọ không tồn tại.";
+            return;
+        }
+    
+        // Lấy hình ảnh của phòng trọ
+        $hinhAnh = $this->phongTroModel->getHinhAnhByPhongTroId($id);
+        $phong['hinhAnh'] = $hinhAnh; 
+    
+        $roomsData = [$phong];
+        $locations = $this->diaDiemModel->all();
+    
+        include_once __DIR__ . '/../views/detailpage.php';
+    }
+    
+    
+
     // Hiển thị form tạo mới
     public function createForm() {
         $error = '';
@@ -113,4 +133,37 @@ class PhongTroController {
         $results = $this->phongTroModel->search($keyword);
         include_once __DIR__ . '/../views/phongtro/search.php';
     }
+
+    public function listByDiaDiem($diaDiem_id) {
+        // Lấy danh sách phòng theo diaDiem_id
+        $rooms = $this->phongTroModel->getByDiaDiem($diaDiem_id);
+    
+        // Ví dụ logic lấy tên tỉnh/thành (từ cột hoặc join dữ liệu). 
+        // Giả sử bạn đã JOIN hoặc có sẵn mảng con ['diaDiem']['tinhThanh']:
+        $tinhThanh = 'Không rõ khu vực';
+        if (!empty($rooms) && isset($rooms[0]['diaDiem']['tinhThanh'])) {
+            $tinhThanh = $rooms[0]['diaDiem']['tinhThanh'];
+        }
+    
+        // Truyền dữ liệu sang view
+        // Tạo biến $diaDiemId (như trong React) để view dùng
+        $diaDiemId = $diaDiem_id;
+        include_once __DIR__ . '/../views/list_page.php';
+    }
+
+    public function roomPage() {
+        $perPage = 6;
+        $page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
+        $offset = ($page - 1) * $perPage;
+    
+        $roomsData = $this->phongTroModel->paginate($perPage, $offset);
+        $totalRooms = $this->phongTroModel->countAll();
+        $totalPages = ceil($totalRooms / $perPage);
+    
+        // Nếu bạn cần thêm location
+        $locations = $this->diaDiemModel->all();
+    
+        include_once __DIR__ . '/../views/roompage.php';
+    }
+    
 }

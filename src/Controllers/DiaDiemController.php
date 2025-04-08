@@ -33,6 +33,19 @@ class DiaDiemController {
         include_once __DIR__ . '/../views/diadiem/create.php'; // cần tạo file này
     }
 
+    // Hiển thị danh sách phòng trọ theo địa điểm
+    public function phongTroTheoDiaDiem($id) {
+        $diaDiem = $this->diaDiemModel->find($id);
+        if (!$diaDiem) {
+            echo "Không tìm thấy địa điểm.";
+            return;
+        }
+
+        $phongTros = $this->diaDiemModel->getPhongTroByDiaDiemId($id);
+        include_once __DIR__ . '/../views/listpage.php'; // cần tạo file này
+    }
+
+
     // Xử lý thêm địa điểm
     public function store() {
         $error = '';

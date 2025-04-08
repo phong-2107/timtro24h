@@ -1,0 +1,53 @@
+.categories-title {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 1003px;
+    justify-content: center;
+    position: relative;
+    width: 336px;
+  }
+  
+  .categories-title .type-house-instance {
+    width: 336px !important;
+  }
+  
+  .categories-title .type-house-2 {
+    width: 306px !important;
+  }
+  
+  .categories-title .total-area-15 {
+    height: 38px;
+    left: 15px;
+    position: absolute;
+    top: 678px;
+    width: 291px;
+  }
+  
+  .categories-title .type-house-3 {
+    margin-right: -13.00px !important;
+  }
+  
+  .categories-title .type-house-4 {
+    height: 238px !important;
+    width: 336px !important;
+  }
+  
+  .categories-title .type-house-5 {
+    top: 66px !important;
+    width: 306px !important;
+  }
+  
+  .categories-title .type-house-6 {
+    margin-right: -42.00px !important;
+  }
+  
+  .categories-title .type-house-7 {
+    margin-right: -41.00px !important;
+  }
+  
+  .categories-title .type-house-8 {
+    margin-right: -49.00px !important;
+  }
+  
