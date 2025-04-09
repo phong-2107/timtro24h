@@ -40,10 +40,13 @@ class PhongTroController {
     
         // Lấy hình ảnh của phòng trọ
         $hinhAnh = $this->phongTroModel->getHinhAnhByPhongTroId($id);
-        $phong['hinhAnh'] = $hinhAnh; 
+        $phong['hinhAnh'] = $hinhAnh;
     
         $roomsData = [$phong];
         $locations = $this->diaDiemModel->all();
+    
+        // 👉 Thêm dòng này: lấy toàn bộ phòng trọ để gợi ý
+        $roomsDataAll = $this->phongTroModel->all();
     
         include_once __DIR__ . '/../views/detailpage.php';
     }
