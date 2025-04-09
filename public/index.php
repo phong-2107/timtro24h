@@ -18,6 +18,7 @@ use QLPhongTro\Controllers\KhachHangYeuThichController;
 use QLPhongTro\Controllers\AD_RC;
 use QLPhongTro\Controllers\ContactController;
 use QLPhongTro\Controllers\ProfileController;
+
 // Kết nối CSDL
 $db = Database::getInstance();
 $conn = $db->getConnection();
@@ -47,7 +48,8 @@ switch ($action) {
     case 'do_register':  $userController->register(); break;
 
     case 'logout': $userController->logout(); break;
-
+    case 'profile':           $userController->profile(); break;
+    case 'update_profile':    $userController->updateProfile(); break;
 
     // ---------- ROLE ----------
     case 'role_index':    $roleController->index(); break;
@@ -64,6 +66,7 @@ switch ($action) {
     case 'diadiem_create':    $diaDiemController->createForm(); break;
     case 'diadiem_store':     $diaDiemController->store(); break;
     case 'phongtro_by_location': $diaDiemController->phongTroTheoDiaDiem($_GET['id'] ?? 0); break;
+    
     
 
     // ---------- PHONG TRO ----------
@@ -92,6 +95,18 @@ switch ($action) {
         break;
     case 'phongtrohinhanh_delete':
         $phongTroHAController->delete($_GET['image_id'] ?? 0, $_GET['phongtro_id'] ?? 0);
+        break;
+
+    // ---------- CONTACT ----------
+    case 'contact':
+        $contactController->show();
+        break;
+    
+
+    // ---------- TIN TỨC ----------
+    case 'news': 
+        $newsController = new \QLPhongTro\Controllers\NewsController();
+        $newsController->index(); 
         break;
 
     // ---------- KHACH HANG ----------

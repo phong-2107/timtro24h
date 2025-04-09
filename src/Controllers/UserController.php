@@ -135,4 +135,46 @@ $_SESSION['user_role'] = $newUser['loaiUser'];
         exit();
     }
     
+
+    // Hiển thị profile người dùng
+    public function profile() {
+        session_start();
+        if (!isset($_SESSION['user_id'])) {
+            header('Location: ?action=login');
+            exit();
+        }
+
+        $userId = $_SESSION['user_id'];
+        $user = $this->userModel->find($userId);
+        include_once __DIR__ . '/../views/user/profile.php';
+    }
+
+    public function updateProfile() {
+        session_start();
+        if (!isset($_SESSION['user_id'])) {
+            header('Location: ?action=login');
+            exit();
+        }
+
+        $userId = $_SESSION['user_id'];
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $data = [
+                ':hoTen' => $_POST['displayName'] ?? '',
+                ':soDienThoai' => $_POST['phone'] ?? '',
+                ':email' => $_POST['email'] ?? '',
+                ':diaChi' => $_POST['address'] ?? '',
+                ':gioiTinh' => $_SESSION['user']['gioiTinh'] ?? 'Nam',
+                ':taiKhoan' => $_SESSION['user']['taiKhoan'],
+                ':matKhau' => $_SESSION['user']['matKhau'],
+                ':loaiUser' => $_SESSION['user']['loaiUser'],
+                ':role_id' => $_SESSION['user']['role_id'],
+            ];
+
+            $this->userModel->update($userId, $data);
+            $_SESSION['user'] = $this->userModel->find($userId);
+        }
+
+        header('Location: ?action=profile');
+        exit();
+    }
 }

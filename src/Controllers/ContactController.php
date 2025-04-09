@@ -191,5 +191,5 @@ class ContactController {
             error_log("Chi tiết lỗi gửi mail: " . $mail->ErrorInfo);
             throw new Exception("Không thể gửi email: " . $mail->ErrorInfo);
         }
-    }
+
 }
