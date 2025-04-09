@@ -104,7 +104,7 @@ class PhongTro {
         $stmt = $this->conn->prepare("SELECT hinhAnh FROM phongtro_hinhanh WHERE phongTro_id = :id LIMIT 1");
         $stmt->execute([':id' => $phongTroId]);
         $row = $stmt->fetch(\PDO::FETCH_ASSOC);
-        return $row ? 'images/room/' . $row['hinhAnh'] : 'images/room/default.jpg';
+        return $row ? '/public/images/room/' . $row['hinhAnh'] : '/public/images/room/1.jpg';
     }
     
 
@@ -140,12 +140,24 @@ class PhongTro {
     }
 
     public function paginate($limit, $offset) {
-        $stmt = $this->conn->prepare("SELECT * FROM PhongTro LIMIT :limit OFFSET :offset");
+        $stmt = $this->conn->prepare("SELECT * FROM PhongTro ORDER BY id DESC LIMIT :limit OFFSET :offset");
         $stmt->bindValue(':limit', (int)$limit, \PDO::PARAM_INT);
         $stmt->bindValue(':offset', (int)$offset, \PDO::PARAM_INT);
         $stmt->execute();
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        $results = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    
+        foreach ($results as &$row) {
+            $row['image'] = $this->getFirstImage($row['id']);
+            $row['title'] = $row['tieuDe'];
+            $row['code'] = 'Mã-' . str_pad($row['id'], 4, '0', STR_PAD_LEFT); // Tạo mã giả
+            $row['price'] = number_format($row['gia'], 0, ',', '.') . ' đ';
+            $row['type'] = 'Phòng trọ';
+            $row['date'] = date('d/m/Y'); // hoặc lấy từ DB nếu có
+        }
+    
+        return $results;
     }
+    
     
     public function countAll() {
         $stmt = $this->conn->query("SELECT COUNT(*) as total FROM PhongTro");

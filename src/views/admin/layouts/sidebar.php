@@ -20,7 +20,7 @@ function isActive($menuPath, $currentPage) {
             <img src="https://c.animaapp.com/m8twrcooYWMm14/img/logo.png" alt="TimTro24H" class="logo">
         </a>
     </div>
-    
+
     <nav class="sidebar-menu">
         <ul>
             <li class="<?php echo isActive('dashboard', $currentPage) ? 'active' : ''; ?>">
@@ -33,6 +33,12 @@ function isActive($menuPath, $currentPage) {
                 <a href="index.php?action=manager&page=room">
                     <img src="https://c.animaapp.com/W9WTQKAn/img/home-1.svg" class="menu-icon" alt="">
                     <span>Tin Phòng</span>
+                </a>
+            </li>
+            <li class="<?php echo isActive('tin-tuc', $currentPage) ? 'active' : ''; ?>">
+                <a href="index.php?action=manager&page=diadiem">
+                    <img src="https://c.animaapp.com/W9WTQKAn/img/smartphone-1.svg" class="menu-icon" alt="">
+                    <span>Địa Điểm</span>
                 </a>
             </li>
             <li class="<?php echo isActive('user', $currentPage) ? 'active' : ''; ?>">

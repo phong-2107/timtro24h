@@ -14,6 +14,11 @@ class AD_RC {
         $this->diaDiemModel = new DiaDiem($conn);
     }
 
+    public function dashboard() {
+        $dsPhongTro = $this->phongTroModel->all();
+        include_once __DIR__ . '/../views/admin/dashboard/index.php';
+    }
+
     // Danh sách phòng trọ (cho admin_room)
     public function index() {
         $search = $_GET['search'] ?? '';
@@ -105,6 +110,37 @@ class AD_RC {
         $diaDiems = $this->diaDiemModel->all();
         include_once __DIR__ . '/../views/phongtro/create.php';
     }
+
+    // Hiển thị form tạo mới phòng trọ
+    public function createRoomPage() {
+        $error = '';
+        $success = '';
+        $diaDiems = $this->diaDiemModel->all();
+        include_once __DIR__ . '/../views/admin/room/create-room.php';
+    }
+
+    // Xử lý lưu phòng trọ mới
+    // Xử lý lưu phòng trọ mới
+public function storeRoom() {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $data = [
+            ':tieuDe' => $_POST['tenPhong'],
+            ':diaChiCuThe' => $_POST['diaChi'],
+            ':diaDiem_id' => $_POST['diaDiem_id'] ?? 1, // lấy từ form
+            ':gia' => $_POST['giaThue'],
+            ':dienTich' => $_POST['dienTich'],
+            ':moTa' => $_POST['moTa'] ?? '',
+            ':trangThai' => $_POST['trangThai'] ?? 'Còn trống',
+            ':nguoiDang_id' => $_SESSION['user_id'] ?? 1,
+        ];
+
+        $this->phongTroModel->create($data);
+        header('Location: index.php?action=manager&page=room');
+        exit();
+    }
+}
+
+
 
     // Giao diện chỉnh sửa (không dùng popup)
     public function editForm($id) {

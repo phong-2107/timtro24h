@@ -21,34 +21,42 @@ class UserController {
     // Xử lý đăng nhập (POST)
     public function login() {
         session_start();
-
+    
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $taiKhoan = $_POST['taiKhoan'] ?? '';
             $matKhau = $_POST['matKhau'] ?? '';
-
-            // Tìm user theo tài khoản
-            $users = $this->userModel->all(); // Có thể tối ưu với findByTaiKhoan()
+    
+            $users = $this->userModel->all(); // Hoặc sử dụng findByTaiKhoan nếu có
+    
             foreach ($users as $user) {
                 if ($user['taiKhoan'] === $taiKhoan && password_verify($matKhau, $user['matKhau'])) {
                     $_SESSION['user'] = $user;
                     $_SESSION['user_id'] = $user['id'];
                     $_SESSION['user_role'] = $user['loaiUser'];
-                    
-                    header('Location: ?action=dashboard');
-                    exit();
+    
+                    // 👉 Chuyển hướng tùy theo vai trò
+                    if ($user['loaiUser'] === 'Admin' || $user['loaiUser'] === 'NhanVien') {
+                        header('Location: /public/index.php?action=manager&page=dashboard');
+                        exit();
+                    } else {
+                        header('Location: /public/index.php');
+                        exit();
+                    }
                 }
             }
-
-            // Đăng nhập thất bại → quay lại trang login + lỗi
+    
+            // Sai tài khoản hoặc mật khẩu
             $error = 'Sai tài khoản hoặc mật khẩu!';
-            header('Location: ?action=login&error=' . urlencode($error));
+            header('Location: /public/index.php?action=login&error=' . urlencode($error));
             exit();
         }
-
-        // Nếu không phải POST, chuyển về form đăng nhập
-        header('Location: ?action=login');
+    
+        // Không phải POST → trở lại form
+        header('Location: /public/index.php?action=login');
         exit();
     }
+    
+    
 
     // Hiển thị form đăng ký
     public function showRegister() {
@@ -93,9 +101,9 @@ class UserController {
             // Lưu vào session
             $_SESSION['user_id'] = $newId;
             $_SESSION['user'] = $newUser;
-$_SESSION['user_role'] = $newUser['loaiUser'];
+            $_SESSION['user_role'] = $newUser['loaiUser'];
     
-            header('Location: ?action=dashboard');
+            header('Location: /public/index.php?action=home');
             exit();
         }
     
