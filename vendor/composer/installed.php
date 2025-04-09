@@ -3,7 +3,7 @@
         'name' => 'nguyen-phong/ql_phong_tro',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'cadd01340e5aca2b67f5a9274fa6d676ca028736',
+        'reference' => 'fe6d1cf52b84c6f927149a968c3436e7f2b9b967',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -58,7 +58,7 @@
         'nguyen-phong/ql_phong_tro' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'cadd01340e5aca2b67f5a9274fa6d676ca028736',
+            'reference' => 'fe6d1cf52b84c6f927149a968c3436e7f2b9b967',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

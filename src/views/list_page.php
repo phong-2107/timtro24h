@@ -17,14 +17,14 @@ use QLPhongTro\Models\DiaDiem;
 
 <div class="list" style="margin-top: 100px;">
     <div class="div-2">
+        <?php include __DIR__ . '/list/find.php'; ?>
+
         <?php 
             include __DIR__ . '/list/categories.php';
         ?>
 
-        <div style="margin-left: 20px;">
-            <h2>Bản đồ (Map)</h2>
-            <p>Phần này bạn có thể tích hợp Google Map hoặc bất kỳ map nào (Vietmap, Leaflet...).</p>
-        </div>
+        <?php include __DIR__ . '/components/Home/map.php'; ?>
+
     </div>
 </div>
 

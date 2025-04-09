@@ -16,7 +16,8 @@ use QLPhongTro\Controllers\KhachHangController;
 use QLPhongTro\Controllers\NhanVienController;
 use QLPhongTro\Controllers\KhachHangYeuThichController;
 use QLPhongTro\Controllers\AD_RC;
-
+use QLPhongTro\Controllers\ContactController;
+use QLPhongTro\Controllers\ProfileController;
 // Kết nối CSDL
 $db = Database::getInstance();
 $conn = $db->getConnection();
@@ -31,7 +32,8 @@ $khachHangController    = new KhachHangController($conn);
 $nhanVienController     = new NhanVienController($conn);
 $yeuThichController = new KhachHangYeuThichController($conn);
 $ARController     = new AD_RC($conn);
-
+$contactController = new ContactController($conn);
+$profileController = new ProfileController($conn);
 // Xác định hành động
 $action = $_GET['action'] ?? 'home';
 
@@ -99,6 +101,31 @@ switch ($action) {
     case 'khachhang_add_fav':         $khachHangController->themYeuThich($_GET['userId'] ?? 0, $_GET['phongTroId'] ?? 0); break;
     case 'khachhang_remove_fav':      $khachHangController->xoaYeuThich($_GET['userId'] ?? 0, $_GET['phongTroId'] ?? 0); break;
 
+    // ---------- LIÊN HỆ ----------
+    case 'contact':        $contactController->index(); break;
+    case 'contact_submit': $contactController->submit(); break;
+
+    // ---------- PROFILE ----------
+    case 'profile':
+        $profileController = new QLPhongTro\Controllers\ProfileController($conn);
+        $profileController->showProfile();
+        break;
+
+    case 'update_profile':
+        $profileController = new QLPhongTro\Controllers\ProfileController($conn);
+        $profileController->updateProfile();
+        break;
+
+    case 'change_password':
+        $profileController = new QLPhongTro\Controllers\ProfileController($conn);
+        $profileController->showChangePassword();
+        break;
+
+    case 'do_change_password':
+        $profileController = new QLPhongTro\Controllers\ProfileController($conn);
+        $profileController->changePassword();
+        break;
+
     // ---------- YEU THICH ----------
     case 'yeuthich_index': 
         $yeuThichController->index($_GET['user'] ?? 0); 
@@ -129,7 +156,7 @@ switch ($action) {
 
     // ---------- ADMIN UI ----------
     case 'manager':
-        include __DIR__ . '/../src/views/admin_UI/admin_home.php';
+        include __DIR__ . '/../src/views/admin/layouts/main.php';
         break;
     case 'user_index': $userController->index(); break;
     case 'room_index':
