@@ -375,7 +375,7 @@
     white-space: nowrap;
   }
   
-  .content-detail .text-wrapper-19 {
+  .content-detail .text-wrapper-date-update {
     color: #1a1a1a;
     font-family: "Gantari", Helvetica;
     font-size: 24px;
@@ -388,7 +388,7 @@
     white-space: nowrap;
   }
   
-  .content-detail .text-wrapper-20 {
+  .content-detail .text-wrapper-date {
     color: #7a7373;
     font-family: "Gantari", Helvetica;
     font-size: 24px;
@@ -431,18 +431,19 @@
   
   .content-detail .box-card {
     align-items: center;
+    justify-content: center;
     display: flex;
-    flex: 0 0 auto;
-    gap: 10px;
+    flex-wrap: wrap;
+    gap: 50px;
     position: relative;
-    width: 1111px;
   }
   
   .content-detail .card-instance {
-    overflow: unset !important;
+    height: 396px !important;
+    margin-top: -1.5px !important;
+    overflow: hidden !important;
+    width: 340px !important;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1019607843);
   }
   
-  .content-detail .card-2 {
-    margin-right: -79.00px !important;
-  }
   

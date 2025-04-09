@@ -8,6 +8,7 @@
     /* height: 323px;  // Giữ nếu bạn muốn footer cố định chiều cao, hoặc bỏ nếu không cần */
     padding: 43px 20px;
     width: 100%;
+    font-family: 'Poppins', sans-serif;
   }
   .footer .frame-4 {
     max-width: 1120px;
@@ -274,4 +275,23 @@
     white-space: nowrap;
     width: fit-content;
   }
-  
+  .frame-copyright {
+    width: 100%;
+    max-width: 1120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .frame-17 {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .frame-18 {
+    color: #fff;
+    display: flex;
+    gap: 7px;
+  }

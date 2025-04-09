@@ -18,6 +18,7 @@ use QLPhongTro\Controllers\KhachHangYeuThichController;
 use QLPhongTro\Controllers\AD_RC;
 use QLPhongTro\Controllers\ContactController;
 use QLPhongTro\Controllers\ProfileController;
+use QLPhongTro\Controllers\ForgotPasswordController; // Thêm controller quên mật khẩu
 
 // Kết nối CSDL
 $db = Database::getInstance();
@@ -35,6 +36,8 @@ $yeuThichController = new KhachHangYeuThichController($conn);
 $ARController     = new AD_RC($conn);
 $contactController = new ContactController($conn);
 $profileController = new ProfileController($conn);
+$forgotPasswordController = new ForgotPasswordController($conn); // Khởi tạo controller quên mật khẩu
+
 // Xác định hành động
 $action = $_GET['action'] ?? 'home';
 
@@ -46,6 +49,11 @@ switch ($action) {
 
     case 'register':     $userController->showRegister(); break;
     case 'do_register':  $userController->register(); break;
+
+    // ---------- QUÊN MẬT KHẨU ----------
+    case 'forgot_password':     $forgotPasswordController->showForgotPasswordForm(); break;
+    case 'do_forgot_password':  $forgotPasswordController->processForgotPassword(); break;
+    
 
     case 'logout': $userController->logout(); break;
     // case 'profile':           $userController->profile(); break;

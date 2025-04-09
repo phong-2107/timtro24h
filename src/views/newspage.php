@@ -53,6 +53,10 @@ $newsItems = [
 
         <?php include __DIR__ . '/components/News/content.php'; ?>
 
+        <div class="btn-viewmore" style="display: flex; justify-content: center; align-items: center; margin-top: 50px;">
+            <a href="#">Xem thêm</a>
+        </div>
+
         <?php include __DIR__ . '/components/Home/map.php'; ?>
     </div>
 </div>

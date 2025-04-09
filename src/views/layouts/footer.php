@@ -59,8 +59,12 @@
         </div>
     </div>
 
-    <div class="frame-9">
-        <div class="frame-14">
+    <div class="frame-copyright">
+    <div class="frame-17">
+            <div class="text-wrapper-14">Website đang trong giai đoạn thử nghiệm</div>
+            <div class="text-wrapper-14">Copyright @timtro24h</div>
+        </div>
+        <div class="frame-18">
             <div class="text-wrapper-14">Privacy policy</div>
             <div class="text-wrapper-14">Privacy policy</div>
         </div>

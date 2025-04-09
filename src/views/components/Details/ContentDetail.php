@@ -7,6 +7,30 @@ if (!$room) {
     echo "<p>Không tìm thấy thông tin phòng trọ.</p>";
     return;
 }
+
+$suggestedRooms = [];
+
+if (!empty($roomsDataAll) && is_array($roomsDataAll)) {
+    $currentRoomId = $roomsData[0]['id'] ?? null;
+
+    $suggestedRooms = array_filter($roomsDataAll, function ($r) use ($currentRoomId) {
+        return $r['id'] != $currentRoomId;
+    });
+
+    $suggestedRooms = array_slice($suggestedRooms, 0, 3);
+}
+
+
+$uniqueLocations = [];
+$seen = [];
+
+foreach ($locations as $location) {
+    $tinhThanh = $location['tinhThanh'];
+    if (!in_array($tinhThanh, $seen)) {
+        $uniqueLocations[] = $location;
+        $seen[] = $tinhThanh;
+    }
+}
 ?>
 
 <div class="content-detail">
@@ -16,11 +40,16 @@ if (!$room) {
             <div class="text-wrapper-8">/</div>
             <div class="text-wrapper-9">Phòng trọ</div>
 
+            <div class="text-wrapper-8">/</div>
+
             <div class="place-wrapper">
-                <?php foreach ($locations as $location): ?>
-                <?php $text = $location['tinhThanh']; $id = $location['id']; ?>
-                <?php include __DIR__ . '/place.php'; ?>
-                <?php endforeach; ?>
+            <?php foreach ($uniqueLocations as $location): ?>
+            <?php 
+            $text = $location['tinhThanh']; 
+            $id = $location['id']; 
+            include __DIR__ . '/place.php'; 
+            ?>
+        <?php endforeach; ?>
             </div>
 
             <div class="text-wrapper-8">/</div>
@@ -84,13 +113,17 @@ if (!$room) {
             </div>
 
             <div class="date-room">
-                <div class="frame-16">
-                    <div class="text-wrapper-17">Ngày đăng</div>
-                    <div class="text-wrapper-18"><?= date('d/m/Y', strtotime($room['created_at'])) ?></div>
-                    <div class="text-wrapper-19"><?= date('d/m/Y', strtotime($room['updated_at'])) ?></div>
-                    <div class="text-wrapper-20">Ngày cập nhật</div>
-                </div>
+    <div class="frame-16">
+        <div class="text-wrapper-17">Ngày đăng</div>
+        <div class="text-wrapper-18">
+            <?= isset($room['created_at']) ? date('d/m/Y', strtotime($room['created_at'])) : 'Chưa có' ?>
+        </div>
+        <div class="text-wrapper-date-update">
+            <?= isset($room['updated_at']) ? date('d/m/Y', strtotime($room['updated_at'])) : 'Chưa cập nhật' ?>
+        </div>
+        <div class="text-wrapper-date">Ngày cập nhật</div>
             </div>
+        </div>
         </div>
 
         <div class="content-right">
@@ -117,14 +150,14 @@ if (!$room) {
     </div>
 
     <div class="box-card">
-        <?php if (empty($roomsData)): ?>
+    <?php if (empty($suggestedRooms)): ?>
         <p>Không có phòng gợi ý.</p>
-        <?php else: ?>
-        <?php foreach ($roomsData as $room): ?>
-        <?php include __DIR__ . '/card.php'; ?>
+    <?php else: ?>
+        <?php foreach ($suggestedRooms as $room): ?>
+            <?php include __DIR__ . '/../Home/card.php'; ?>
         <?php endforeach; ?>
-        <?php endif; ?>
-    </div>
+    <?php endif; ?>
+</div>
 </div>
 
 
