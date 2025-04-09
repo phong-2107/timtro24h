@@ -46,4 +46,32 @@ class KhachHangController {
         header("Location: ?action=khachhang_yeuthich&userId=$userId");
         exit();
     }
+
+    public function getPhongTroYeuThichBySession()
+{
+    session_start();
+    if (!isset($_SESSION['username'])) {
+        echo "Bạn cần đăng nhập để xem danh sách yêu thích.";
+        return;
+    }
+
+    // Lấy Khách Hàng theo email đăng nhập
+    $khachHangModel = new \QLPhongTro\Models\KhachHang(Database::getConnection());
+    $khachHang = $khachHangModel->getByEmail($_SESSION['username']);
+
+    if (!$khachHang) {
+        echo "Không tìm thấy khách hàng.";
+        return;
+    }
+
+    $modelYeuThich = new \QLPhongTro\Models\KhachHangYeuThich(Database::getConnection());
+    $roomsData = $modelYeuThich->getPhongTroYeuThich($khachHang['id']);
+
+    $totalPages = 1;
+    $page = 1;
+    $locations = []; // nếu muốn hiển thị theo địa điểm
+
+    include __DIR__ . '/../views/follow.php';
+}
+
 }
