@@ -205,6 +205,12 @@ switch ($action) {
     case 'room_delete':
         $ARController->delete();
         break;
+        
+    case 'follow_mine':
+        require_once 'controllers/KhachHangController.php';
+        $controller = new KhachHangController();
+        $controller->getPhongTroYeuThichBySession();
+        break;
 
         case 'create-room':
             $ARController->createRoomPage();

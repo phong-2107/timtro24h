@@ -1,18 +1,12 @@
-<link rel="stylesheet" href="/public/styles/home/Card.css">
-
-
 <?php
 if (!isset($room) || !is_array($room)) {
     echo '<div style="color: red;">Lỗi: Không có dữ liệu phòng trọ!</div>';
-    return; // Dừng nếu không có dữ liệu
+    return;
 }
-?>
 
-<?php
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-
 
 $id = $room['id'];
 $title = $room['tieuDe'];
@@ -27,30 +21,40 @@ $isHot = true;
 // Rút gọn tiêu đề
 $displayTitle = (mb_strlen($title) > 19) ? mb_substr($title, 0, 16) . '...' : $title;
 
-// Escape dữ liệu để tránh lỗi
+// Escape dữ liệu
 $displayTitle = htmlspecialchars($displayTitle, ENT_QUOTES, 'UTF-8');
 $location = htmlspecialchars($location, ENT_QUOTES, 'UTF-8');
 
+// Xác định trang hiện tại có phải follow_mine hay không
+$currentPage = $_GET['action'] ?? '';
+$isFollowPage = ($currentPage === 'follow_mine');
+?>
 
+<div class="card card-instance" style="position: relative;">
+    <?php if ($isFollowPage && isset($_SESSION['username'])): ?>
+        <!-- Nút Bỏ theo dõi -->
+        <form method="post" action="?action=yeuthich_remove" style="position: absolute; top: 10px; right: 10px; z-index: 10;">
+            <input type="hidden" name="phong" value="<?= $id ?>">
+            <button type="submit" class="btn-unfollow" style="
+                background-color: #dc3545;
+                color: white;
+                border: none;
+                padding: 4px 8px;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 12px;">
+                Bỏ theo dõi
+            </button>
+        </form>
+    <?php endif; ?>
 
-// // Kiểm tra đăng nhập
-// $isLoggedIn = isset($_SESSION['user_id']);
-// $userId = $_SESSION['user_id'] ?? null;
-
-// // URL toggle yêu thích
-// $toggleUrl = "?action=yeuthich_add&user=$userId&phong=$id";
-// ?>
-
-
-
-<a href="<?= $detailUrl ?>" class="card card-instance">
-    <div class="card card-instance">
+    <a href="<?= $detailUrl ?>" style="text-decoration: none; color: inherit;">
         <div class="label-wrapper"
-            style="background-image: url('<?= htmlspecialchars($imageSrc) ?>'); background-position: center; background-size: cover;">
+             style="background-image: url('<?= htmlspecialchars($imageSrc) ?>'); background-position: center; background-size: cover;">
             <?php if ($isHot): ?>
-            <div class="label">
-                <div class="for-sale">Hot</div>
-            </div>
+                <div class="label">
+                    <div class="for-sale">Hot</div>
+                </div>
             <?php endif; ?>
         </div>
 
@@ -59,13 +63,6 @@ $location = htmlspecialchars($location, ENT_QUOTES, 'UTF-8');
                 <div class="content-3">
                     <div class="title-4">
                         <div class="text-wrapper-19"><?= $displayTitle ?></div>
-
-                        <!-- Icon Yêu Thích -->
-                        <!-- <a href="<?= $isLoggedIn ? $toggleUrl : 'javascript:void(0)' ?>" class="fav-icon"
-                            onclick="<?php if (!$isLoggedIn): ?>alert('Vui lòng đăng nhập để sử dụng tính năng yêu thích!'); return false;<?php endif; ?>">
-                            <img class="vector-2" src="https://cdn-icons-png.flaticon.com/512/833/833472.png"
-                                alt="Yêu thích" width="20" />
-                        </a> -->
                     </div>
                     <div class="text-wrapper-20"><?= $location ?></div>
                 </div>
@@ -76,7 +73,7 @@ $location = htmlspecialchars($location, ENT_QUOTES, 'UTF-8');
                 <div class="size">
                     <div class="icon-text">
                         <img class="img-3" alt="Size fullscreen"
-                            src="https://c.animaapp.com/m8uerufgJVBeV6/img/size-fullscreen-svgrepo-com-1.svg" />
+                             src="https://c.animaapp.com/m8uerufgJVBeV6/img/size-fullscreen-svgrepo-com-1.svg" />
                         <div class="text">
                             <div class="text-wrapper-22"><?= $area ?></div>
                         </div>
@@ -87,7 +84,7 @@ $location = htmlspecialchars($location, ENT_QUOTES, 'UTF-8');
                 <div class="total-area">
                     <div class="total-area-2">
                         <img class="img-3" alt="Time icon"
-                            src="https://c.animaapp.com/m8uerufgJVBeV6/img/time-svgrepo-com-1.svg" />
+                             src="https://c.animaapp.com/m8uerufgJVBeV6/img/time-svgrepo-com-1.svg" />
                         <div class="text-2">
                             <div class="text-wrapper-24"><?= $timeAgo ?></div>
                         </div>
@@ -96,5 +93,5 @@ $location = htmlspecialchars($location, ENT_QUOTES, 'UTF-8');
                 </div>
             </div>
         </div>
-    </div>
-</a>
+    </a>
+</div>
