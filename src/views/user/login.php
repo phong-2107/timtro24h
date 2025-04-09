@@ -12,7 +12,7 @@
     <div class="sign-in">
         <div class="container">
             <div class="logo">
-                <a href="/"><img src="/public/images/logo1.png" alt="logo"></a>
+                <a href="/public/index.php"><img src="/public/images/logo1.png" alt="logo"></a>
             </div>
 
             <form class="form" method="post" action="/public/index.php?action=do_login">

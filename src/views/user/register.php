@@ -41,7 +41,7 @@
 
                 <div class="form-group">
                     <label>Giới tính</label>
-                    <select name="gioiTinh" required>
+                    <select name="gioiTinh" class="form-select" required>
                         <option value="Nam" <?= (($_POST['gioiTinh'] ?? '') === 'Nam') ? 'selected' : '' ?>>Nam</option>
                         <option value="Nữ" <?= (($_POST['gioiTinh'] ?? '') === 'Nữ') ? 'selected' : '' ?>>Nữ</option>
                     </select>

@@ -30,9 +30,9 @@ $userName = $_SESSION['user_name'] ?? "Nguyễn Thanh Phong";
     <div class="right-section">
         <div class="user-info">
             <span class="username"><?php echo htmlspecialchars($userName); ?></span>
-            <a href="index.php?action=logout" class="logout-btn">
+            <!-- <a href="index.php?action=logout" class="logout-btn">
                 <img class="fa fa-sign-out" src="https://c.animaapp.com/W9WTQKAn/img/log-out-1.svg" alt="Logout">
-            </a>
+            </a> -->
         </div>
     </div>
 </div>

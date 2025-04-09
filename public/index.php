@@ -181,9 +181,13 @@ switch ($action) {
     case 'manager':
         include __DIR__ . '/../src/views/admin/layouts/main.php';
         break;
+
+    case 'dashboard':
+        $userController->dashboard();
+    break;
     case 'user_index': $userController->index(); break;
     case 'room_index':
-        $ARController->index(); // ✅ Dùng lại biến đã khởi tạo bên trên
+        $ARController->index();
         break;
     
     case 'room_get':
@@ -201,4 +205,13 @@ switch ($action) {
     case 'room_delete':
         $ARController->delete();
         break;
-}
+
+        case 'create-room':
+            $ARController->createRoomPage();
+            break;
+        
+        case 'room_store':
+            $ARController->storeRoom();
+            break;
+
+}    
