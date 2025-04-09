@@ -30,7 +30,7 @@ class ProfileController {
             exit();
         }
         
-        include_once __DIR__ . '/../views/user/profile.php';
+        include_once __DIR__ . '/../views/profile.php';
     }
     
     // Xử lý cập nhật thông tin cá nhân
