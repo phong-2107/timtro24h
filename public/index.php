@@ -46,7 +46,8 @@ switch ($action) {
     case 'do_register':  $userController->register(); break;
 
     case 'logout': $userController->logout(); break;
-
+    case 'profile':           $userController->profile(); break;
+    case 'update_profile':    $userController->updateProfile(); break;
 
     // ---------- ROLE ----------
     case 'role_index':    $roleController->index(); break;

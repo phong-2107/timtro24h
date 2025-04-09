@@ -126,3 +126,52 @@
     width: fit-content;
   }
   
+  .user-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .user-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+  }
+
+.user-toggle i{
+  background-color: var(--x-006-1df);
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+  .dropdown-toggle-icon {
+    font-size: 18px;
+  }
+  .dropdown-box {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    min-width: 150px;
+    z-index: 100;
+    display: none;
+    /* Ẩn mặc định */
+  }
+  .dropdown-item {
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .dropdown-item:hover {
+    background-color: #f0f0f0;
+  }
+  /* ✅ Hiển thị menu khi hover */
+  .user-dropdown:hover .dropdown-box {
+    display: block;
+  }
+  

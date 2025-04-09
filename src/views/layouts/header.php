@@ -29,13 +29,30 @@ $user = $_SESSION['user'] ?? null;
             <div class="frame-2">
                 <?php if (isset($_SESSION['user']) && !empty($_SESSION['user']['taiKhoan'])): ?>
                 <div class="user-info">
-                    <span>Hi! <strong><?= htmlspecialchars($_SESSION['user']['taiKhoan']) ?></strong></span>
-                    <form method="GET" action="/public/index.php" style="margin:0;">
-                        <input type="hidden" name="action" value="logout">
-                        <button type="submit" class="logout" title="Đăng xuất">
-                            <i class="fa-solid fa-right-from-bracket"></i>
-                        </button>
-                    </form>
+                    <div class="user-dropdown">
+                        <div class="user-toggle" onclick="toggleDropdown()" style="cursor: pointer;">
+                            <span>Hi! <strong><?= htmlspecialchars($_SESSION['user']['taiKhoan']) ?></strong></span>
+                            <i class="fa-solid fa-bars"></i>
+                        </div>
+
+                        <div class="dropdown-box" id="dropdownBox" style="display: none;">
+                            <div class="dropdown-item">
+                                <a href="?action=profile">Hồ sơ</a>
+                            </div>
+                            <div class="dropdown-item">
+                                <a href="?action=setting">Cài đặt</a>
+                            </div>
+                            <div class="dropdown-item" style="color: red;">
+                                <form method="GET" action="/public/index.php" style="margin: 0;">
+                                    <input type="hidden" name="action" value="logout">
+                                    <button type="submit" class="logout"
+                                        style="background: none; border: none; color: red; cursor: pointer;">
+                                        <i class="fa-solid fa-right-from-bracket"></i> Đăng xuất
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <?php else: ?>
                 <a href="/public/index.php?action=login" class="SIGN-IN">Đăng Nhập</a>
@@ -49,3 +66,10 @@ $user = $_SESSION['user'] ?? null;
         </div>
     </div>
 </div>
+
+<script>
+function toggleDropdown() {
+    const dropdown = document.getElementById('dropdownBox');
+    dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+}
+</script>
