@@ -1,21 +1,38 @@
 <link rel="stylesheet" href="/public/styles/list/FindFilter.css" />
 
-<div class="find">
+<div class="frame">
     <form class="form" method="GET" action="index.php">
         <input type="hidden" name="action" value="phongtro_find" />
 
         <div class="input">
-            <!-- Diện Tích -->
+            <!-- Tìm kiếm tên phòng -->
+            <div class="group-2">
+                <div class="label">TÌM KIẾM</div>
+                <div class="content-2">
+                    <img
+                        class="img-2"
+                        alt="Frame"
+                        src="https://c.animaapp.com/m8twrcooYWMm14/img/frame.svg"
+                    />
+                    <input
+                        type="text"
+                        name="search_text"
+                        placeholder="Tìm kiếm tên phòng trọ"
+                    />
+                </div>
+            </div>
+
+            <!-- Loại phòng -->
             <div class="group-3">
-                <div class="label">DIỆN TÍCH</div>
+                <div class="label">LOẠI PHÒNG</div>
                 <div class="content-3">
-                    <select name="area">
-                        <option value="">Tất cả diện tích</option>
-                        <option value="duoi15">Dưới 15m²</option>
-                        <option value="15-25">15 - 25m²</option>
-                        <option value="25-35">25 - 35m²</option>
-                        <option value="tren35">Trên 35m²</option>
+                    <select name="room_type">
+                        <option value="">Phòng Trọ</option>
+                        <option value="nhatro">Nhà trọ</option>
+                        <option value="chungcu">Chung cư mini</option>
+                        <option value="nguyencan">Nhà nguyên căn</option>
                     </select>
+                    
                 </div>
             </div>
 
@@ -31,12 +48,13 @@
                         </option>
                         <?php endforeach; ?>
                     </select>
+                
                 </div>
             </div>
 
             <!-- Mức giá -->
             <div class="group-5">
-                <div class="label">Mức Giá</div>
+                <div class="label">MỨC GIÁ</div>
                 <div class="content-3">
                     <select name="price">
                         <option value="">Tất cả mức giá</option>
@@ -45,6 +63,7 @@
                         <option value="3-5tr">3 - 5 triệu</option>
                         <option value="tren5tr">Trên 5 triệu</option>
                     </select>
+                
                 </div>
             </div>
         </div>
